@@ -1,0 +1,39 @@
+Here’s a complete list of commands based on the above example:
+
+Compile:
+sh
+Copy code
+javac -classpath "$(hadoop classpath)" -d . WordCount.java
+
+
+Package:
+sh
+Copy code
+jar -cvf WordCount.jar -C . .
+
+Create input directory in HDFS:
+sh
+Copy code
+hdfs dfs -mkdir -p /user/yourusername/input
+
+
+Upload input file:
+sh
+Copy code
+hdfs dfs -put path/to/input.txt /user/yourusername/input
+
+Run Hadoop job:
+sh
+Copy code
+hadoop jar WordCount.jar WordCount /user/yourusername/input /user/yourusername/output
+
+
+View output:
+sh
+Copy code
+hdfs dfs -cat /user/yourusername/output/part-r-00000
+
+
+Notes
+Ensure Paths Are Correct: Replace yourusername with your actual Hadoop username.
+Errors: If you encounter any errors, check that your environment variables are properly set and that HADOOP_HOME and JAVA_HOME are correctly configured.
