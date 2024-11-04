@@ -1,0 +1,7 @@
+#Design a logistic regression model for the ISLR dataset.
+library(ISLR)
+data("Default")
+model <- glm(default ~ income + balance, data = Default, family = binomial)
+summary(model)
+print(model)
+plot(model,pch=19,col="darkgrey")
